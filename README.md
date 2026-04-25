@@ -1,18 +1,30 @@
 # Research portfolio — Yuka Kust
 
-Curated public summary of independent ML/research work done 2025–2026. Working code lives in private repos (`pt-moe-research`, `jippy`); this repo is the public-facing index for hiring contexts. Access to the private repos available on request.
+Curated public summary of independent ML/research work done 2025–2026. Working code lives in private repos (`pt-moe-research`, `jippy`); this repo is the public-facing index. Access to private repos available on request.
+
+## Safety thesis (read first)
+
+### 🛡️ [Personal models as anti-concentration safety infrastructure](safety_thesis.md)
+
+The dominant AI safety risk over the next decade is **concentration**: one or two foundation models serving a billion people, with values and failure modes centralized in a small number of corporate weights. Behavioural alignment work addresses *how* a centralized model behaves; it does not address *that* the model is centralized — that is a structural problem requiring structural mitigations.
+
+The architectural bet I am building toward: **distributed AI ownership** via personal models — small adapters trained on an individual's data, sitting on top of (but not subordinate to) a shared backbone. Each user holds their own slice of cognition. Concentration containment, interpretability tractability, capability bounding, and sovereignty fall out of the architecture. The four research findings below are concrete steps toward that thesis.
 
 ## Highlights
 
-### 🧪 [Era 10 — Matchbox LoRA: LoRA as persistent domain prior](era10_matchbox.md)
+### 🧪 [Era 10 — LoRA as persistent domain prior](era10_matchbox.md)
 
-Empirical demonstration that LoRA acts as a persistent always-on domain prior, not a context-conditional switch. Same images, same model, same human voters: prompt-matching frame → 47% LoRA win, style frame → **80% LoRA win**. Bare prompt `factory worker` (no trigger word, no domain mention) renders in the LoRA's retro Soviet matchbox-label style; baseline produces a normal photo.
+Empirical demonstration that LoRA acts as a persistent always-on domain prior, not a context-conditional switch. Same images, same model, same human voters: prompt-matching frame → 47% LoRA win, style frame → **80% LoRA win**. Bare prompt `factory worker` (no trigger word, no domain mention) renders in the LoRA's retro Soviet matchbox-label style; baseline produces a normal photo. Validates personal-LoRAs as *strong* persistent interventions — the right unit for studying personalization mechanistically.
 
 Methodological note: style-LoRA evaluations must use style-aware vote questions — content-matching framings systematically punish style adapters.
 
+### 🗣️ [Phase 0 — Personal voice recovery: 4-way SFT eval](phase0_yuka_voice_eval.md)
+
+A 68 MB LoRA recovers individual communication style at parity with full fine-tuning (1.7 GB) on held-out personal Telegram + Claude Code session data. **25× compression, no quality loss.** Phone-class hardware deployable. Moves personal-AI from "research curiosity" to "feasible deployment target today" — a 68 MB per-user delta is shippable, a 1.7 GB delta is not.
+
 ### 📐 [Phase 0 — Multi-LoRA composition: Arrow routing validation](phase0_results.md)
 
-Arrow routing achieves **97% of oracle-routing accuracy in-domain** on a math5 benchmark (5 math LoRAs). Generation-jaccard reveals the true ranking that loss-on-validation initially obscured. Format-mimicry observation grounds the Layer-0 hypothesis. Foundation for hierarchical LoRA-guild routing in Phase 1.
+Arrow routing achieves **97% of oracle-routing accuracy in-domain** on a math5 benchmark (5 math LoRAs). Generation-jaccard reveals the true ranking that loss-on-validation initially obscured. Format-mimicry observation grounds the Layer-0 hypothesis. Required infrastructure for serving many personal/specialist adapters per user without ground-truth routing oracles.
 
 ### 🛠️ Jippy — personal AI Chrome extension (production)
 
