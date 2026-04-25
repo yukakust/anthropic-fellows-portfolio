@@ -22,6 +22,10 @@ Methodological note: style-LoRA evaluations must use style-aware vote questions 
 
 A 68 MB LoRA recovers individual communication style at parity with full fine-tuning (1.7 GB) on held-out personal Telegram + Claude Code session data. **25× compression, no quality loss.** Phone-class hardware deployable. Moves personal-AI from "research curiosity" to "feasible deployment target today" — a 68 MB per-user delta is shippable, a 1.7 GB delta is not.
 
+### 🥟 [Georgian-cuisine eval — 125M specialist ties (and routed pair beats) frontier Claude](georgian_cuisine_eval.md)
+
+A 125 M model SFT-trained on **99 texts** (~42K words) about Georgian cuisine ties frontier Claude on direct domain retrieval (Claude 6 / Specialist 7 / Tie 7 across 20 blind questions). A two-specialist + router variant (Georgian + Atatürk) **beats the same Claude 5–3 on direct test** with 8 ties. Empirical evidence that on a narrow domain the user actually cares about, a tiny personal-scale model is not worse than the centralized frontier model — the "concentration containment" pillar of the safety thesis is operational, not aspirational.
+
 ### 📐 [Phase 0 — Multi-LoRA composition: Arrow routing validation](phase0_results.md)
 
 Arrow routing achieves **97% of oracle-routing accuracy in-domain** on a math5 benchmark (5 math LoRAs). Generation-jaccard reveals the true ranking that loss-on-validation initially obscured. Format-mimicry observation grounds the Layer-0 hypothesis. Required infrastructure for serving many personal/specialist adapters per user without ground-truth routing oracles.

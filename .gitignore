@@ -1,0 +1,10 @@
+# Private outreach drafts — never commit
+_outreach_*.md
+_draft_*.md
+_private_*.md
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/
